@@ -25,7 +25,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
 import org.alfresco.repo.content.MimetypeMap;
-import org.alfresco.repo.content.transform.AbstractContentTransformer2;
 import org.alfresco.service.cmr.repository.ContentReader;
 import org.alfresco.service.cmr.repository.ContentWriter;
 import org.alfresco.service.cmr.repository.TransformationOptions;
@@ -38,12 +37,15 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 
 /**
+ * Deprecated
+ *
  * This class is a transformer from Plain Text to PDF, powered by iText
+ *
+ * NOTE: This code needs to be migrated to a LocalTransformer for ACS 7
  * 
  * @author Nick Burch
  */
 public class ITextTransformerTextToPDF
-    extends AbstractContentTransformer2
 {
     private static final Log logger = LogFactory.getLog(ITextTransformerTextToPDF.class);
 
@@ -70,7 +72,6 @@ public class ITextTransformerTextToPDF
     /**
      * Do the transformation
      */
-    @Override
     protected void transformInternal(ContentReader contentReader, ContentWriter contentWriter, TransformationOptions options)
         throws Exception
     {

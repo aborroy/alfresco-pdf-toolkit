@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 
 import org.alfresco.repo.content.MimetypeMap;
-import org.alfresco.repo.content.transform.AbstractContentTransformer2;
 import org.alfresco.service.cmr.repository.ContentReader;
 import org.alfresco.service.cmr.repository.ContentWriter;
 import org.alfresco.service.cmr.repository.TransformationOptions;
@@ -18,12 +17,16 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.RandomAccessFileOrArray;
 import com.itextpdf.text.pdf.codec.TiffImage;
 
-public class ITextTransformerTIFFToPDF extends AbstractContentTransformer2 {
+/**
+ * Deprecated
+ *
+ * NOTE: This code needs to be migrated to a LocalTransformer for ACS 7
+ */
+public class ITextTransformerTIFFToPDF {
 
 	public static final String MIMETYPE_IMAGE_TIFF = "image/tiff";
 	private static final Log logger = LogFactory.getLog(ITextTransformerTIFFToPDF.class);
 	
-	@Override
 	public boolean isTransformable(String sourceMimetype, String targetMimetype,
 			TransformationOptions options) {
 		
@@ -38,7 +41,6 @@ public class ITextTransformerTIFFToPDF extends AbstractContentTransformer2 {
             }
 	}
 
-	@Override
 	/**
 	 * This is a VERY basic transformer. Still a lot to do, such as:
 	 * 
